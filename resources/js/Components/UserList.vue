@@ -30,23 +30,27 @@
         </table>
 
         <!-- Edit User Modal -->
-        <div v-if="showEditModal">
-            <div class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
-                <div class="bg-white p-6 rounded shadow-lg">
-                    <h2 class="text-xl font-semibold mb-4">Edit User</h2>
-                    <form @submit.prevent="updateUser">
-                        <div>
-                            <label for="name">Name:</label>
-                            <input type="text" v-model="editUserForm.name" id="name" />
-                        </div>
-                        <div>
-                            <label for="email">Email:</label>
-                            <input type="email" v-model="editUserForm.email" id="email" />
-                        </div>
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Save</button>
-                        <button @click="cancelEdit" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded mt-4 ml-2">Cancel</button>
-                    </form>
-                </div>
+        <div v-if="showEditModal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
+                <h2 class="text-xl font-semibold mb-4">Edit User</h2>
+                <form @submit.prevent="updateUser">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700">Name:</label>
+                        <input type="text" v-model="editUserForm.name" id="name"
+                            class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-gray-700">Email:</label>
+                        <input type="email" v-model="editUserForm.email" id="email"
+                            class="w-full p-2 border border-gray-300 rounded mt-1 focus:outline-none focus:border-blue-500" />
+                    </div>
+                    <div class="flex justify-end">
+                        <button type="submit"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Save</button>
+                        <button @click="cancelEdit" type="button"
+                            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded ml-2 focus:outline-none focus:shadow-outline">Cancel</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
